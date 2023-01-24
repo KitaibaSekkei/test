@@ -1,0 +1,11 @@
+streamlit
+seaborn
+pandas
+numpy
+sklearn
+matplotlib.pyplot
+sklearn.metrics
+sklearn.decomposition
+math
+scipy.stats
+scipy
