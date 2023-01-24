@@ -3,9 +3,6 @@ seaborn
 pandas
 numpy
 sklearn
-matplotlib.pyplot
-sklearn.metrics
-sklearn.decomposition
+matplotlib
 math
-scipy.stats
 scipy
