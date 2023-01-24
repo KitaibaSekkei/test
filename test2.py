@@ -15,11 +15,12 @@ from sklearn.decomposition import PCA
 import math
 from scipy.stats import norm
 from scipy import stats
+import io
 
 st.set_page_config(layout="wide")
 st.sidebar.title('ツール選択')
 
-bunrui = ["重回帰分析","主成分分析","要約統計量"]
+bunrui = ["重回帰分析"]#,"主成分分析","要約統計量"
 b1 = st.sidebar.selectbox("分類",bunrui)
 
 if b1=="重回帰分析":
@@ -29,17 +30,22 @@ if b1=="重回帰分析":
 
     sns.set(font='Meiryo')
 
+    st.title("インプット情報")
+    data = st.text_area('データ入力欄')
+
     if st.sidebar.button('実行'):
 
-        
         #sns.set(font_scale = 2)
         #plt.style.use('default')
         #plt.rcParams['xtick.direction'] = 'in'
         #plt.rcParams['ytick.direction'] = 'in'
         
+        data = pd.read_csv(io.StringIO(data), header=0,sep='\s+')
+        st.write(data)
+
         st.title("重回帰分析結果")
         #csvファイルの呼び出し
-        data = pd.read_clipboard()
+        #data = pd.read_clipboard()
         #回帰モデルの呼び出し
         clf = linear_model.LinearRegression()
         #説明変数
